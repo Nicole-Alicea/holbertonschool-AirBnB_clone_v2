@@ -47,6 +47,8 @@ def number(n):
 
     if isinstance(n, int):
         return (n) + ' is a number'
+    else:
+        return 'Error: n must be an integer'
 
 
 if __name__ == '__main__':
