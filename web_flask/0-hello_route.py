@@ -9,6 +9,7 @@ app = Flask(__name__)
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
     '''Will display the following string when accessed'''
+    
     return "Hello HBNB!"
 
 
