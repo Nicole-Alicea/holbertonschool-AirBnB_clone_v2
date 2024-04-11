@@ -1,19 +1,21 @@
 #!/usr/bin/python3
 '''This script starts a Flask web application'''
+
 from flask import Flask
 
 
 app = Flask(__name__)
-'''Creates a Flask application instance'''
+app.url_map.strict_slashes = False
 
-@app.route('/', strict_slashes=False)
+
+@app.route('/')
 def hello_hbnb():
     '''Will display the following string when accessed'''
 
     return 'Hello HBNB!'
 
 
-@app.route('/hbnb', strict_slashes=False)
+@app.route('/hbnb')
 def hbnb():
     '''Will display the following string when accessed'''
 
