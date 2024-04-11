@@ -4,23 +4,24 @@ from flask import Flask
 
 
 app = Flask(__name__)
-'''Creates a Flask application instance'''
+app.url_map.strict_slashes = False
 
-@app.route('/', strict_slashes = False)
+
+@app.route('/')
 def hello_hbnb():
     '''Will display the following string when accessed'''
 
     return 'Hello HBNB!'
 
 
-@app.route('/hbnb', strict_slashes = False)
+@app.route('/hbnb/')
 def hbnb():
     '''Will display the following string when accessed'''
 
     return 'HBNB'
 
 
-@app.route('/c/<text>', strict_slashes = False)
+@app.route('/c/<text>')
 def c_text(text):
     '''Will display the following string when accessed. Receives a value in
     the text variable and replaces '_' with spaces'''
@@ -28,8 +29,8 @@ def c_text(text):
     return 'C ' + str(text.replace('_', ' '))
 
 
-@app.route('/python/<text>', strict_slashes = False)
-@app.route('/python/', strict_slashes = False)
+@app.route('/python/<text>')
+@app.route('/python/')
 def python_text(text='is cool'):
     '''Will display the following string when accessed. Receives a value in
     the text variable and replaces '_' with spaces. If no value is written,
