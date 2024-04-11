@@ -4,13 +4,12 @@ from flask import Flask
 
 
 app = Flask(__name__)
-'''Creates a Flask application instance'''
+app.url_map.strict_slashes=False
 
 
-@app.route('/', strict_slashes=False)
+@app.route('/')
 def hello_hbnb():
     '''Will display the following string when accessed'''
-    
     return "Hello HBNB!"
 
 
