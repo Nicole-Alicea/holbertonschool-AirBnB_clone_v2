@@ -15,7 +15,7 @@ def hello_hbnb():
     return 'Hello HBNB!'
 
 
-@app.route('/hbnb')
+@app.route('/hbnb/')
 def hbnb():
     '''Will display the following string when accessed'''
 
