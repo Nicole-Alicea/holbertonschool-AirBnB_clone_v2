@@ -46,7 +46,7 @@ def number(n):
     received is an integer'''
 
     if isinstance(n, int):
-        return n + ' is a number'
+        return str(n) + ' is a number'
 
 
 @app.route('/number_template/<int:n>')
