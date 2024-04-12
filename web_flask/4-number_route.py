@@ -40,13 +40,13 @@ def python_text(text='is cool'):
     return 'Python ' + str(text.replace('_', ' '))
 
 
-@app.route('/number/<n>')
+@app.route('/number/<int:n>')
 def number(n):
     '''Will display the following string when accessed only if the value
     received is an integer'''
 
-    if n.isdigit():
-        return (n) + ' is a number'
+    if isinstance(n, int):
+        return str(n) + ' is a number'
 
 
 if __name__ == '__main__':
