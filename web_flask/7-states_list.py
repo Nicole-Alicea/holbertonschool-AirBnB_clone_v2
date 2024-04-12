@@ -3,6 +3,7 @@
 
 from flask import Flask, render_template
 from models import storage
+from models import state
 
 
 app = Flask(__name__, template_folder="templates")
@@ -11,7 +12,7 @@ app.url_map.strict_slashes = False
 
 @app.route('/states_list/')
 def states():
-    states = storage.all("State")
+    states = storage.all(state)
     sorted_states = sorted(states.values(), key=lambda state: state.name)
     return render_template('7-states_list.html', states=sorted_states)
 
