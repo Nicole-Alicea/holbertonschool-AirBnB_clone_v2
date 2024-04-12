@@ -12,6 +12,8 @@ app.url_map.strict_slashes = False
 
 @app.route('/states_list/')
 def states():
+    '''Will display an HTML page containing a list of States
+    sorted by name'''
     states = storage.all(state)
     sorted_states = sorted(states.values(), key=lambda state: state.name)
     return render_template('7-states_list.html', states=sorted_states)
@@ -19,6 +21,7 @@ def states():
 
 @app.teardown_appcontext
 def teardown():
+    '''Will remove the current SQLAlchemy Session after each request'''
     storage.close()
 
 
