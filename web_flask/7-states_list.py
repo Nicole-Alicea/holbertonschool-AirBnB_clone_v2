@@ -3,7 +3,7 @@
 
 from flask import Flask, render_template
 from models import storage
-from models import state
+from models.state import State
 
 
 app = Flask(__name__, template_folder="templates")
@@ -14,7 +14,7 @@ app.url_map.strict_slashes = False
 def states():
     '''Will display an HTML page containing a list of States
     sorted by name'''
-    states = storage.all(state)
+    states = storage.all(State)
     sorted_states = sorted(states.values(), key=lambda state: state.name)
     return render_template('7-states_list.html', states=sorted_states)
 
