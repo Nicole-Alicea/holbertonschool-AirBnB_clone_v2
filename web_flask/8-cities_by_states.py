@@ -11,7 +11,8 @@ app.url_map.strict_slashes = False
 
 @app.route('/cities_by_states/')
 def cities():
-    '''Will display an HTML page containing a list of cities by states'''
+    '''Will display an HTML page containing a list,
+     sorted by name, of cities by states'''
 
 
 @app.teardown_appcontext
