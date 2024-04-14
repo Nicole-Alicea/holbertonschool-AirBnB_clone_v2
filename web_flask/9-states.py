@@ -25,7 +25,7 @@ def states():
 
 
 @app.route('/states/<id>')
-def states_id():
+def states_id(id):
     '''Will display an HTML page'''
     for state in storage.all(State).values():
         if state.id == id:
