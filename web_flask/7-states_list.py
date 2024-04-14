@@ -10,19 +10,18 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
-@app.route('/states_list/')
-def states():
-    '''Will display an HTML page containing a list of States
-    sorted by name'''
-    states = storage.all(State)
-    sorted_states = sorted(states.values(), key=lambda state: state.name)
-    return render_template('7-states_list.html', states=sorted_states)
-
-
 @app.teardown_appcontext
-def teardown():
+def teardown(exception):
     '''Will remove the current SQLAlchemy Session after each request'''
     storage.close()
+
+
+@app.route('/states_list/')
+def states_list():
+    '''Will display an HTML page containing a list of States
+    sorted by name'''
+    states = sorted(storage.all(State).values(), key=lambda s: s.name)
+    return render_template('7-states_list.html', states=states)
 
 
 if __name__ == '__main__':
